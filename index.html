@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Word of Mouth Tint</title>
+    <title>Word of Mouth Window Tinting</title>
     <style>
         * {
             margin: 0;
@@ -31,23 +31,13 @@
             top: 0;
             z-index: 100;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-            animation: slideDown 0.6s ease-out;
-            transition: box-shadow 0.3s ease;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+            transform: translateY(0);
+            opacity: 1;
         }
 
-        nav:hover {
+        nav.scrolled {
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        @keyframes slideDown {
-            from {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
         }
 
         nav ul {
@@ -67,6 +57,7 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
+            display: inline-block;
         }
 
         nav a::before {
@@ -179,6 +170,15 @@
             color: #556B2F;
             opacity: 0.9;
             animation: fadeIn 1s ease-out 0.7s both;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .tagline {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #556B2F;
+            opacity: 0.8;
+            animation: fadeIn 1s ease-out 0.9s both;
         }
 
         @keyframes fadeIn {
@@ -186,7 +186,7 @@
                 opacity: 0;
             }
             to {
-                opacity: 0.9;
+                opacity: 1;
             }
         }
 
@@ -197,6 +197,11 @@
 
         .messaging-section {
             background-color: #EFF5D2;
+            position: relative;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #C6D870 0%, #EFF5D2 100%);
             position: relative;
         }
 
@@ -279,6 +284,172 @@
             background-color: #C6D870;
         }
 
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-item strong {
+            display: block;
+            color: #556B2F;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-item a {
+            color: #556B2F;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #8FA31E;
+        }
+
+        .rating {
+            display: inline-block;
+            background-color: #8FA31E;
+            color: #EFF5D2;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        /* Form Styles */
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+            text-align: left;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: #556B2F;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #C6D870;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-family: inherit;
+            color: #556B2F;
+            background-color: #EFF5D2;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #8FA31E;
+            background-color: #fff;
+            box-shadow: 0 0 0 3px rgba(143, 163, 30, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .btn {
+            background-color: #556B2F;
+            color: #EFF5D2;
+            padding: 0.875rem 2rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            background-color: #8FA31E;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(85, 107, 47, 0.3);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .success-message {
+            background-color: #8FA31E;
+            color: #EFF5D2;
+            padding: 1rem;
+            border-radius: 6px;
+            margin-top: 1rem;
+            text-align: center;
+            display: none;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .error-message {
+            color: #d32f2f;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .form-group.error input,
+        .form-group.error select,
+        .form-group.error textarea {
+            border-color: #d32f2f;
+        }
+
         /* Smooth scroll indicator */
         .scroll-indicator {
             position: fixed;
@@ -295,16 +466,6 @@
             background: linear-gradient(90deg, #8FA31E, #C6D870);
             width: 0%;
             transition: width 0.1s ease-out;
-        }
-
-        /* Loading animation */
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.5;
-            }
         }
 
         /* Responsive */
@@ -329,6 +490,18 @@
             .card {
                 padding: 1.5rem;
             }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .form-container {
+                padding: 1.5rem;
+            }
         }
 
         /* Performance optimizations */
@@ -346,19 +519,22 @@
     </div>
 
     <!-- Navigation -->
-    <nav>
+    <nav id="navbar">
         <ul>
             <li><a href="#home">Home</a></li>
-            <li><a href="#appointment">Appointment Sheet</a></li>
+            <li><a href="#appointment">Appointment</a></li>
             <li><a href="#messaging">Messaging</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero visible">
         <div class="section-content">
-            <h1>Word of Mouth Tint</h1>
-            <p>Welcome to our premium tinting services</p>
+            <h1>Word of Mouth Window Tinting</h1>
+            <p>Automotive Window Tinting Service</p>
+            <p class="tagline">Clean and professional work!</p>
+            <div class="rating">96% recommend (19 Reviews)</div>
         </div>
     </section>
 
@@ -367,9 +543,82 @@
         <div class="section-content">
             <h2>Appointment Sheet</h2>
             <p>Schedule your appointment with us</p>
-            <div class="card">
-                <p>Book your tinting service appointment here. Fill out the form below to schedule a time that works for you.</p>
-                <p style="margin-top: 1rem; font-style: italic;">Appointment booking form will be available here.</p>
+            <div class="form-container">
+                <form id="appointmentForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                            <span class="error-message" id="firstNameError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                            <span class="error-message" id="lastNameError"></span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                            <span class="error-message" id="emailError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                            <span class="error-message" id="phoneError"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="vehicleType">Vehicle Type *</label>
+                        <select id="vehicleType" name="vehicleType" required>
+                            <option value="">Select vehicle type</option>
+                            <option value="sedan">Sedan</option>
+                            <option value="suv">SUV</option>
+                            <option value="truck">Truck</option>
+                            <option value="coupe">Coupe</option>
+                            <option value="hatchback">Hatchback</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <span class="error-message" id="vehicleTypeError"></span>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="preferredDate">Preferred Date *</label>
+                            <input type="date" id="preferredDate" name="preferredDate" required>
+                            <span class="error-message" id="preferredDateError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="preferredTime">Preferred Time *</label>
+                            <select id="preferredTime" name="preferredTime" required>
+                                <option value="">Select time</option>
+                                <option value="morning">Morning (8 AM - 12 PM)</option>
+                                <option value="afternoon">Afternoon (12 PM - 5 PM)</option>
+                                <option value="evening">Evening (5 PM - 7 PM)</option>
+                            </select>
+                            <span class="error-message" id="preferredTimeError"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tintType">Tint Type</label>
+                        <select id="tintType" name="tintType">
+                            <option value="">Select tint type (optional)</option>
+                            <option value="ceramic">Ceramic</option>
+                            <option value="carbon">Carbon</option>
+                            <option value="dyed">Dyed</option>
+                            <option value="metallic">Metallic</option>
+                            <option value="not-sure">Not Sure</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="appointmentNotes">Additional Notes</label>
+                        <textarea id="appointmentNotes" name="appointmentNotes" placeholder="Any special requests or questions..."></textarea>
+                    </div>
+                    <button type="submit" class="btn">Book Appointment</button>
+                    <div class="success-message" id="appointmentSuccess">
+                        Thank you! Your appointment request has been submitted. We'll contact you soon to confirm.
+                    </div>
+                </form>
             </div>
         </div>
     </section>
@@ -379,14 +628,82 @@
         <div class="section-content">
             <h2>Messaging</h2>
             <p>Get in touch with us</p>
-            <div class="card">
-                <p>Send us a message for any questions or inquiries about our services.</p>
-                <p style="margin-top: 1rem; font-style: italic;">Messaging interface will be available here.</p>
+            <div class="form-container">
+                <form id="messageForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="messageName">Your Name *</label>
+                            <input type="text" id="messageName" name="messageName" required>
+                            <span class="error-message" id="messageNameError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="messageEmail">Your Email *</label>
+                            <input type="email" id="messageEmail" name="messageEmail" required>
+                            <span class="error-message" id="messageEmailError"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="messagePhone">Phone Number</label>
+                        <input type="tel" id="messagePhone" name="messagePhone" placeholder="(701) 555-1234">
+                    </div>
+                    <div class="form-group">
+                        <label for="messageSubject">Subject *</label>
+                        <input type="text" id="messageSubject" name="messageSubject" required placeholder="What is your message about?">
+                        <span class="error-message" id="messageSubjectError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="messageContent">Message *</label>
+                        <textarea id="messageContent" name="messageContent" required placeholder="Tell us how we can help you..."></textarea>
+                        <span class="error-message" id="messageContentError"></span>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                    <div class="success-message" id="messageSuccess">
+                        Thank you for your message! We'll get back to you as soon as possible.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="section-content">
+            <h2>Contact Us</h2>
+            <p>Visit us or give us a call</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <strong>📍 Address</strong>
+                    <div>300 3rd St SW Ste A<br>Minot, ND 58701</div>
+                </div>
+                <div class="contact-item">
+                    <strong>📞 Phone</strong>
+                    <a href="tel:7015005802">(701) 500-5802</a>
+                </div>
+                <div class="contact-item">
+                    <strong>⭐ Rating</strong>
+                    <div>96% recommend<br>19 Reviews</div>
+                </div>
             </div>
         </div>
     </section>
 
     <script>
+        // Fix navigation on scroll
+        const navbar = document.getElementById('navbar');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            
+            lastScroll = currentScroll;
+        });
+
         // Intersection Observer for scroll animations
         const observerOptions = {
             threshold: 0.1,
@@ -419,7 +736,7 @@
             const documentHeight = document.documentElement.scrollHeight;
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             const scrollableHeight = documentHeight - windowHeight;
-            const progress = (scrollTop / scrollableHeight) * 100;
+            const progress = scrollableHeight > 0 ? (scrollTop / scrollableHeight) * 100 : 0;
             scrollProgress.style.width = progress + '%';
         }
 
@@ -457,6 +774,242 @@
 
         // Initialize scroll progress on load
         updateScrollProgress();
+
+        // Form Validation and Submission
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        function validatePhone(phone) {
+            const re = /^[\d\s\-\(\)]+$/;
+            return re.test(phone) && phone.replace(/\D/g, '').length >= 10;
+        }
+
+        function showError(inputId, errorId, message) {
+            const input = document.getElementById(inputId);
+            const error = document.getElementById(errorId);
+            const formGroup = input.closest('.form-group');
+            
+            formGroup.classList.add('error');
+            error.textContent = message;
+            error.classList.add('show');
+        }
+
+        function clearError(inputId, errorId) {
+            const input = document.getElementById(inputId);
+            const error = document.getElementById(errorId);
+            const formGroup = input.closest('.form-group');
+            
+            formGroup.classList.remove('error');
+            error.classList.remove('show');
+        }
+
+        // Appointment Form Handler
+        const appointmentForm = document.getElementById('appointmentForm');
+        appointmentForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            let isValid = true;
+            const formData = new FormData(appointmentForm);
+            
+            // Clear previous errors
+            document.querySelectorAll('#appointmentForm .error-message').forEach(err => {
+                err.classList.remove('show');
+            });
+            document.querySelectorAll('#appointmentForm .form-group').forEach(group => {
+                group.classList.remove('error');
+            });
+
+            // Validate first name
+            const firstName = formData.get('firstName').trim();
+            if (!firstName) {
+                showError('firstName', 'firstNameError', 'First name is required');
+                isValid = false;
+            }
+
+            // Validate last name
+            const lastName = formData.get('lastName').trim();
+            if (!lastName) {
+                showError('lastName', 'lastNameError', 'Last name is required');
+                isValid = false;
+            }
+
+            // Validate email
+            const email = formData.get('email').trim();
+            if (!email) {
+                showError('email', 'emailError', 'Email is required');
+                isValid = false;
+            } else if (!validateEmail(email)) {
+                showError('email', 'emailError', 'Please enter a valid email address');
+                isValid = false;
+            }
+
+            // Validate phone
+            const phone = formData.get('phone').trim();
+            if (!phone) {
+                showError('phone', 'phoneError', 'Phone number is required');
+                isValid = false;
+            } else if (!validatePhone(phone)) {
+                showError('phone', 'phoneError', 'Please enter a valid phone number');
+                isValid = false;
+            }
+
+            // Validate vehicle type
+            const vehicleType = formData.get('vehicleType');
+            if (!vehicleType) {
+                showError('vehicleType', 'vehicleTypeError', 'Please select a vehicle type');
+                isValid = false;
+            }
+
+            // Validate preferred date
+            const preferredDate = formData.get('preferredDate');
+            if (!preferredDate) {
+                showError('preferredDate', 'preferredDateError', 'Please select a preferred date');
+                isValid = false;
+            } else {
+                const selectedDate = new Date(preferredDate);
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                if (selectedDate < today) {
+                    showError('preferredDate', 'preferredDateError', 'Please select a future date');
+                    isValid = false;
+                }
+            }
+
+            // Validate preferred time
+            const preferredTime = formData.get('preferredTime');
+            if (!preferredTime) {
+                showError('preferredTime', 'preferredTimeError', 'Please select a preferred time');
+                isValid = false;
+            }
+
+            if (isValid) {
+                // Simulate form submission
+                const submitBtn = appointmentForm.querySelector('.btn');
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Submitting...';
+                
+                setTimeout(() => {
+                    document.getElementById('appointmentSuccess').classList.add('show');
+                    appointmentForm.reset();
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Book Appointment';
+                    
+                    // Scroll to success message
+                    document.getElementById('appointmentSuccess').scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'nearest' 
+                    });
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        document.getElementById('appointmentSuccess').classList.remove('show');
+                    }, 5000);
+                }, 1000);
+            }
+        });
+
+        // Message Form Handler
+        const messageForm = document.getElementById('messageForm');
+        messageForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            let isValid = true;
+            const formData = new FormData(messageForm);
+            
+            // Clear previous errors
+            document.querySelectorAll('#messageForm .error-message').forEach(err => {
+                err.classList.remove('show');
+            });
+            document.querySelectorAll('#messageForm .form-group').forEach(group => {
+                group.classList.remove('error');
+            });
+
+            // Validate name
+            const messageName = formData.get('messageName').trim();
+            if (!messageName) {
+                showError('messageName', 'messageNameError', 'Name is required');
+                isValid = false;
+            }
+
+            // Validate email
+            const messageEmail = formData.get('messageEmail').trim();
+            if (!messageEmail) {
+                showError('messageEmail', 'messageEmailError', 'Email is required');
+                isValid = false;
+            } else if (!validateEmail(messageEmail)) {
+                showError('messageEmail', 'messageEmailError', 'Please enter a valid email address');
+                isValid = false;
+            }
+
+            // Validate subject
+            const messageSubject = formData.get('messageSubject').trim();
+            if (!messageSubject) {
+                showError('messageSubject', 'messageSubjectError', 'Subject is required');
+                isValid = false;
+            }
+
+            // Validate message content
+            const messageContent = formData.get('messageContent').trim();
+            if (!messageContent) {
+                showError('messageContent', 'messageContentError', 'Message is required');
+                isValid = false;
+            } else if (messageContent.length < 10) {
+                showError('messageContent', 'messageContentError', 'Message must be at least 10 characters');
+                isValid = false;
+            }
+
+            if (isValid) {
+                // Simulate form submission
+                const submitBtn = messageForm.querySelector('.btn');
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+                
+                setTimeout(() => {
+                    document.getElementById('messageSuccess').classList.add('show');
+                    messageForm.reset();
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Send Message';
+                    
+                    // Scroll to success message
+                    document.getElementById('messageSuccess').scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'nearest' 
+                    });
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        document.getElementById('messageSuccess').classList.remove('show');
+                    }, 5000);
+                }, 1000);
+            }
+        });
+
+        // Set minimum date to today for appointment date picker
+        const dateInput = document.getElementById('preferredDate');
+        if (dateInput) {
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.setAttribute('min', today);
+        }
+
+        // Real-time validation
+        document.querySelectorAll('input, select, textarea').forEach(field => {
+            field.addEventListener('blur', function() {
+                const fieldId = this.id;
+                const errorId = fieldId + 'Error';
+                const errorElement = document.getElementById(errorId);
+                
+                if (errorElement && this.hasAttribute('required')) {
+                    if (!this.value.trim()) {
+                        const label = this.closest('.form-group').querySelector('label').textContent.replace(' *', '');
+                        showError(fieldId, errorId, `${label} is required`);
+                    } else {
+                        clearError(fieldId, errorId);
+                    }
+                }
+            });
+        });
     </script>
 </body>
 </html>
