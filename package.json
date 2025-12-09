@@ -2,9 +2,7 @@
   "name": "word-of-mouth-tint",
   "version": "1.0.0",
   "description": "Word of Mouth Tint application",
-  "scripts": {
-    "build": "echo 'Static site - no build needed'"
-  },
+  "scripts": {},
   "keywords": [],
   "author": "",
   "license": "ISC"
