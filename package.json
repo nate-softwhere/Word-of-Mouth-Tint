@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Word of Mouth Tint application",
   "scripts": {
-    "build": "echo 'Build complete - static site ready'"
+    "build": "echo 'Static site - no build needed'"
   },
   "keywords": [],
   "author": "",
