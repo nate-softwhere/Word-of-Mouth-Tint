@@ -14,6 +14,9 @@ node_modules/
 /build
 /dist
 
+# Vercel build output (generated during build)
+/public
+
 # Misc
 .DS_Store
 *.pem
