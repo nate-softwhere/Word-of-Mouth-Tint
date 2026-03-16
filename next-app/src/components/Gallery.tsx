@@ -25,7 +25,7 @@ export default function Gallery() {
               className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition-all"
             >
               <Image
-                src={src}
+                src={encodeURI(src)}
                 alt={alt}
                 fill
                 className="object-cover hover:scale-105 transition-transform"

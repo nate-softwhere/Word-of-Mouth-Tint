@@ -8,9 +8,9 @@ import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
-    <>
+    <div className="min-h-screen flex flex-col">
       <Header />
-      <main>
+      <main className="flex-1" id="main-content">
         <Hero />
         <About />
         <Gallery />
@@ -18,6 +18,6 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
-    </>
+    </div>
   );
 }

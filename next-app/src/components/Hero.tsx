@@ -2,9 +2,16 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex flex-col justify-center items-center px-8 py-16 text-center bg-gradient-to-br from-crimson-light to-blush"
+      className="relative min-h-screen flex flex-col justify-center items-center px-8 py-16 text-center overflow-hidden"
+      style={{
+        backgroundImage: "url(/word-of-mouth-tint-logo.png)",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
     >
-      <div className="section-content">
+      <div className="absolute inset-0 bg-gradient-to-br from-crimson-light/85 to-blush/85" aria-hidden />
+      <div className="section-content relative z-10">
         <h1 className="text-4xl md:text-5xl font-bold text-crimson mb-4 drop-shadow-sm">
           Word of Mouth Window Tinting
         </h1>
