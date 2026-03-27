@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Word of Mouth Window Tinting",
+  title: "LaunchKit",
   description:
-    "Professional automotive window tinting in Minot, ND. Clean and professional work. Premium materials, 96% customer satisfaction. (701) 500-5802.",
+    "A simple, modern landing page starter for a Next.js app with a clear hero, feature section, and call to action.",
   openGraph: {
-    title: "Word of Mouth Window Tinting",
+    title: "LaunchKit",
     description:
-      "Professional automotive window tinting in Minot, ND. Clean and professional work.",
+      "A simple, modern landing page starter for a Next.js app with a clear hero, feature section, and call to action.",
   },
 };
 
